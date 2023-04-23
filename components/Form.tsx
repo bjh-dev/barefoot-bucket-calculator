@@ -117,7 +117,7 @@ const Form = () => {
 											onChange={handleIncomeChange}
 											value={income ? income : ''}
 											onKeyDown={handleIncomeInput}
-											className='block w-full rounded-md border-0 bg-gray-50 py-1.5 pl-7 pr-20 text-gray-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+											className='block w-full rounded-md border-0 bg-gray-50 py-3 pl-7 pr-20 text-lg text-gray-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
 											placeholder='0.00'
 										/>
 									</div>
@@ -134,7 +134,7 @@ const Form = () => {
 										name='payCycle'
 										value={payCycle}
 										onChange={handleFrequenyChange}
-										className='mt-2 block w-full rounded-md border-0 bg-gray-50 py-1.5 pl-7 pr-20 text-gray-700 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+										className='py-3rounded-md mt-2 block w-full border-0 bg-gray-50 pl-7 pr-20 text-lg text-gray-700 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
 									>
 										<option value='Weekly'>Weekly</option>
 										<option value='Fortnightly'>Fortnightly</option>

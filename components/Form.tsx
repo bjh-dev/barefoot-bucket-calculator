@@ -156,7 +156,7 @@ const Form = () => {
 									<Disclosure as='div'>
 										{({ open }) => (
 											<>
-												<dt>
+												<dt className='transition-all duration-300 ease-in-out'>
 													<Disclosure.Button className='w-full'>
 														<div className='flex flex-row items-center justify-between'>
 															<div className='flex items-center'>

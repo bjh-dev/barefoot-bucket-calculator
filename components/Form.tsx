@@ -88,8 +88,7 @@ const Form = () => {
 		setIncome(0)
 		setPayCycle('Weekly')
 	}
-	console.log('income: ', income)
-	console.log('payCycle: ', payCycle)
+
 	return (
 		<>
 			<div className='flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-24'>

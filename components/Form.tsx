@@ -36,12 +36,12 @@ const buckets = [
 const budgetItems = [
 	{
 		id: 1,
-		item: 'Housing (rent or home loan)',
+		item: 'Housing',
 		percentage: 30,
 	},
 	{
 		id: 2,
-		item: 'Utilities (power, water, gas, internet, phones)',
+		item: 'Utilities',
 		percentage: 10,
 	},
 	{
@@ -84,13 +84,13 @@ const Form = () => {
 	console.log('income: ', income)
 	return (
 		<>
-			<div className='grid grid-cols-2 gap-x-24 '>
+			<div className='flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-24 '>
 				<div className='col-span-2'>
 					<div className='max-w-2xl'>
 						<form onSubmit={handleSubmit}>
 							<label
 								htmlFor='email'
-								className='mb-2 block text-xl font-medium leading-6 text-gray-700'
+								className='mb-2 block font-medium leading-6 text-gray-700'
 							>
 								Enter Your Monthly Take-Home Pay:
 							</label>
@@ -128,18 +128,18 @@ const Form = () => {
 						</form>
 					</div>
 				</div>
-				<div className='col-span-1 mt-24'>
-					<div className='flex flex-col space-y-6'>
+				<div className='col-span-1 mt-6 lg:mt-24'>
+					<div className='flex flex-col space-y-2 lg:space-y-6'>
 						{buckets.map((bucket) => (
 							<div
 								key={bucket.id}
-								className='rounded-lg border border-gray-400 bg-gray-200 p-6'
+								className='rounded-lg border border-gray-400 bg-gray-200 p-4'
 							>
-								<div className='flex justify-between space-x-12'>
-									<h3 className='flex items-center text-lg font-bold'>
+								<div className='flex justify-between space-x-12 text-base font-bold'>
+									<h3 className='flex flex-col items-center  lg:flex-row lg:text-lg'>
 										{bucket.title}
 									</h3>
-									<h4 className='text-lg font-bold text-gray-400'>
+									<h4 className='text-gray-400'>
 										{income > 0 ? (
 											<span className='text-blue-700'>
 												$
@@ -152,28 +152,26 @@ const Form = () => {
 										)}
 									</h4>
 								</div>
-								<p className='mt-2 text-sm'>{bucket.description}</p>
+								<p className='mt-2 hidden text-sm'>{bucket.description}</p>
 								<div></div>
 							</div>
 						))}
 					</div>
 				</div>
-				<div className='col-span-1 mt-24'>
+				<div className='col-span-1 mt-6 lg:mt-24'>
 					<div className='rounded-lg border border-gray-400 bg-gray-200 p-6'>
 						<h3 className='text-2xl font-bold text-gray-700'>Budget Items</h3>
 						<p className='mt-2 text-sm'>
 							Here is a very loose sketch of what your budget might look like
-							using the 60% aollocation in your daily expenses account. The
-							value here is using the percentages as a guide to whether you
-							might be under-spending or over-spenign in a catagory
+							using the 60% allocation in your daily expenses account. Use the
+							percentages as a guide to assess whether you might be
+							under-spending or over-spenign in a catagory
 						</p>
-						<div>
+						<div className='overflow-x-scroll'>
 							<table className='table-fluid mt-6 w-full'>
 								<thead className='bg-gray-300 text-left'>
 									<tr>
-										<th className='whitespace-nowrap py-2 pr-2 text-sm'>
-											Percentage
-										</th>
+										<th className='whitespace-nowrap py-2 pr-2 text-sm'>%</th>
 										<th className='whitespace-nowrap py-2 pr-2 text-sm'>
 											Category
 										</th>

@@ -216,7 +216,7 @@ const Form = () => {
 							Budget Items{' '}
 							<span className='ml-2 text-sm text-rose-700'>{payCycle}</span>
 						</h3>
-						<p className='mt-2 font-serif text-sm text-gray-500'>
+						<p className='mt-2 font-serif text-sm font-normal text-gray-500'>
 							Here is a very loose sketch of what your budget might look like
 							using the 60% allocation in your daily expenses account. Use the
 							percentages as a guide to assess whether you might be

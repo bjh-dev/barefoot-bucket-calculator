@@ -9,7 +9,7 @@ export default function Home() {
 						<h1 className='text-5xl font-extrabold'>
 							The Barefoot Bucket Calculator
 						</h1>
-						<p className='mt-4 font-serif font-light text-gray-500'>
+						<p className='mt-4 font-serif font-normal text-gray-500'>
 							Calculate your bucket distributions based on your pay frequency.
 							Check your spending actual spending against the suggestions from
 							the Barefoot Investor.

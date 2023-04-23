@@ -1,6 +1,7 @@
 'use client'
-
+import { Disclosure } from '@headlessui/react'
 import { useState } from 'react'
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi'
 
 const buckets = [
 	{
@@ -151,28 +152,60 @@ const Form = () => {
 								key={bucket.id}
 								className='rounded-lg border border-gray-400 bg-gray-200 p-4'
 							>
-								<div className='flex justify-between space-x-12 text-base font-bold'>
-									<h3 className='flex flex-col items-center lg:flex-row lg:text-lg'>
-										{bucket.title}
-									</h3>
-									<h4 className='text-right text-gray-400'>
-										{income > 0 ? (
-											<span className='text-blue-700'>
-												$
-												{percentageCalculate(income, bucket.percentage).toFixed(
-													2
-												)}
-											</span>
-										) : (
-											<span className='text-gray-400'>$0.00</span>
+								<div>
+									<Disclosure as='div'>
+										{({ open }) => (
+											<>
+												<dt>
+													<Disclosure.Button className='w-full'>
+														<div className='flex flex-row items-center justify-between'>
+															<div className='flex items-center'>
+																<span className='text-lg font-bold text-gray-700'>
+																	{bucket.title}
+																</span>
+																<span className='ml-1 items-center'>
+																	{open ? (
+																		<HiChevronUp
+																			className='h-6 w-6 text-gray-400'
+																			aria-hidden='true'
+																		/>
+																	) : (
+																		<HiChevronDown
+																			className='h-6 w-6 text-gray-400'
+																			aria-hidden='true'
+																		/>
+																	)}
+																</span>
+															</div>
+															<h4 className='text-right text-gray-400'>
+																{income > 0 ? (
+																	<span className='text-blue-700'>
+																		$
+																		{percentageCalculate(
+																			income,
+																			bucket.percentage
+																		).toFixed(2)}
+																	</span>
+																) : (
+																	<span className='text-gray-400'>$0.00</span>
+																)}
+																<span className='block text-xs text-gray-400'>
+																	{' '}
+																	{payCycle}
+																</span>
+															</h4>
+														</div>
+													</Disclosure.Button>
+												</dt>
+												<Disclosure.Panel as='dd' className='mt-4'>
+													<p className='font-serif text-sm font-normal leading-relaxed text-gray-500'>
+														{bucket.description}
+													</p>
+												</Disclosure.Panel>
+											</>
 										)}
-										<span className='block text-xs text-gray-400'>
-											{' '}
-											{payCycle}
-										</span>
-									</h4>
+									</Disclosure>
 								</div>
-								<p className='mt-2 hidden text-sm'>{bucket.description}</p>
 							</div>
 						))}
 					</div>

@@ -92,8 +92,8 @@ const Form = () => {
 	return (
 		<>
 			<div className='flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-24'>
-				<div className='col-span-2'>
-					<div className='max-w-2xl py-6'>
+				<div className='col-span-1'>
+					<div className='py-6'>
 						<form onSubmit={handleSubmit}>
 							<div className='flex flex-col space-y-4'>
 								<div>
@@ -133,7 +133,7 @@ const Form = () => {
 										name='payCycle'
 										value={payCycle}
 										onChange={handleFrequenyChange}
-										className='py-3rounded-md mt-2 block w-full border-0 bg-gray-50 pl-7 pr-20 text-lg text-gray-700 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
+										className='mt-2 block w-full rounded-md border-0 bg-gray-50 py-3 pl-7 pr-20 text-lg text-gray-700 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6'
 									>
 										<option value='Weekly'>Weekly</option>
 										<option value='Fortnightly'>Fortnightly</option>
@@ -144,7 +144,7 @@ const Form = () => {
 						</form>
 					</div>
 				</div>
-				<div className='col-span-1 mt-6 lg:mt-24'>
+				<div className='col-span-1 col-start-1 mt-6 lg:mt-24'>
 					<div className='flex flex-col space-y-2 lg:space-y-6'>
 						{buckets.map((bucket) => (
 							<div
@@ -210,28 +210,30 @@ const Form = () => {
 					</div>
 				</div>
 				<div className='col-span-1 mt-6 lg:mt-24'>
-					<div className='rounded-lg border border-gray-400 bg-gray-200 p-6'>
-						<h3 className='text-2xl font-bold text-gray-700'>
-							Budget Items{' '}
-							<span className='ml-2 text-sm text-rose-700'>{payCycle}</span>
-						</h3>
-						<p className='mt-2 font-serif text-sm font-normal text-gray-500'>
-							Here is a very loose sketch of what your budget might look like
-							using the 60% allocation in your daily expenses account. Use the
-							percentages as a guide to assess whether you might be
-							under-spending or over-spenign in a catagory
-						</p>
+					<div className='rounded-lg border border-gray-400 bg-gray-200'>
+						<div className=' p-6'>
+							<h3 className='text-2xl font-bold text-gray-700'>
+								Budget Items{' '}
+								<span className='ml-2 text-sm text-rose-700'>{payCycle}</span>
+							</h3>
+							<p className='mt-2 font-serif text-sm font-normal text-gray-500'>
+								Here is a very loose sketch of what your budget might look for
+								your daily expense account. Use the percentages as a guide to
+								assess whether you might be under-spending or over-spending in a
+								catagory
+							</p>
+						</div>
 						<div className='overflow-x-scroll'>
-							<table className='table-fluid mt-6 w-full'>
+							<table className='mt-6 w-full table-fixed bg-gray-50'>
 								<thead className='bg-gray-300 text-left'>
 									<tr>
-										<th className='whitespace-nowrap py-2 pl-2 pr-2 text-sm'>
+										<th className='w-28 whitespace-nowrap px-4 py-2 text-right text-sm'>
 											%
 										</th>
-										<th className='whitespace-nowrap py-2 pr-2 text-sm'>
+										<th className='whitespace-nowrap px-4 py-2 text-sm'>
 											Category
 										</th>
-										<th className='whitespace-nowrap py-2 pr-2 text-sm'>
+										<th className='w-28 whitespace-nowrap px-4 py-2 text-right text-sm'>
 											Amount
 										</th>
 									</tr>
@@ -239,13 +241,13 @@ const Form = () => {
 								<tbody>
 									{budgetItems.map((item) => (
 										<tr key={item.id} className='border-b border-gray-400 py-6'>
-											<td className='whitespace-nowrap py-2 pl-2 pr-2 text-sm'>
+											<td className='w-28 whitespace-nowrap px-4 py-2 pr-2 text-right text-sm'>
 												{item.percentage}%
 											</td>
-											<td className='whitespace-nowrap py-2 pr-2 text-sm'>
+											<td className='whitespace-nowrap px-4 py-2 text-sm'>
 												{item.item}
 											</td>
-											<td className='whitespace-nowrap py-2 pr-2 text-sm'>
+											<td className='w-28 whitespace-nowrap px-4 py-2 text-right text-sm'>
 												{income > 0 ? (
 													<span className='text-rose-700'>
 														$
